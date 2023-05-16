@@ -4,6 +4,7 @@
 
 #ifndef ISOTRAPEZOID_H
 #define ISOTRAPEZOID_H
+#include "polygon.h"
 #include <iostream>
 
 using namespace std;
@@ -20,8 +21,8 @@ protected:
 	/// @{
 	/// Calculates side (is virtual for other subclasses)
 	virtual float Side();
-	virtual float Area() {return ((topSide + bottomSide) * height) / 2;}
-	virtual float Perimeter {return topSide + bottomSide + (Side() * 2);}
+	virtual float Area(); 
+	virtual float Perimeter();
 public:
 	/// @name Constructors/Destructors
 	/// @ {
@@ -37,7 +38,7 @@ public:
 	/// @{
 	float GetSide() {return Side();}
 	float GetTopSide() {return topSide;}
-	float GetBottomSide() {return bottomSIde;}
+	float GetBottomSide() {return bottomSide;}
 	float GetHeight() {return height;}
 	void GetParams(float& mem_top, float& mem_bottom, float& mem_height);
 	/// @}

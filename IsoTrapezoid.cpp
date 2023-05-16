@@ -3,7 +3,7 @@
 
 #include "IsoTrapezoid.h"
 #include <iostream>
-#include <cmath.h>
+#include <cmath>
 
 ///@brief Initializer function
 void IsoTrapezoid::Init(){
@@ -60,19 +60,35 @@ void IsoTrapezoid::GetParams(float& mem_t, float& mem_b, float& mem_h){
 /// @brief Setter for top side
 /// @param new_t is new value of top side (must be > 0)
 void IsoTrapezoid::SetTopSide (float new_t){
-	(new_t>0)? topSide = new_t : ErrorMessage ("top side is less than/ equal to 0");
+	if (new_t <= 0){
+		ErrorMessage ("top side is less than/ equal to 0");
+		return;
+	}
+	topSide = new_t;
+
+
 }	
 
 /// @brief Setter for bottom side
 /// @param new_b is new value of bottom side (must be > 0)
 void IsoTrapezoid::SetBottomSide (float new_b){
-	(new_b>0)? bottomSide = new_b : ErrorMessage ("bottom side is less than/ equal to 0");
+	if (new_b <= 0){
+		ErrorMessage ("b side is less than/ equal to 0");
+		return;
+	}
+	bottomSide = new_b;
+
+
 }
 
 /// @brief Setter for height
 /// @param new_h is new value of height (must be > 0)
 void IsoTrapezoid::SetHeight (float new_h){
-	(new_h>0)? height = new_h : ErrorMessage ("height is less than/ equal to 0");
+	if (new_h <= 0){
+		ErrorMessage ("height is less than/ equal to 0");
+		return;
+	}
+	height = new_h;
 }	
 
 /// @brief Setter for all params
@@ -108,7 +124,7 @@ void IsoTrapezoid::Dump(){
 	cout << "height: " << height << endl;
 }
 
-IsoTrapezoid& IsoTrapezoid::operator= ( IsoTrapezoid& r){
+IsoTrapezoid& IsoTrapezoid::operator= (const IsoTrapezoid& r){
 	CopyInit(r);
 	return *this;
 }
@@ -116,7 +132,7 @@ IsoTrapezoid& IsoTrapezoid::operator= ( IsoTrapezoid& r){
 ///@breif overload of == operator
 /// @param r right operanf
 /// @return left operand
-bool IsoTrapezoid::operator == (IsoTrapezoid& r){
+bool IsoTrapezoid::operator == (const IsoTrapezoid& r){
 	if (topSide == r.topSide && bottomSide == r.bottomSide && height == height)
 		return true;
 	return false;
@@ -136,4 +152,12 @@ istream& operator >> (istream& in, IsoTrapezoid& r){
 	in >> x;
 	r.SetHeight(x);
 	return in;
-}	
+}
+float IsoTrapezoid::Area(){
+	return ((topSide + bottomSide) * height) / 2;
+}
+
+float IsoTrapezoid::Perimeter(){
+	return (topSide + bottomSide + (Side() * 2));
+}
+
