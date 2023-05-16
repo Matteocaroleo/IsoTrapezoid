@@ -20,33 +20,34 @@ protected:
 	/// @{
 	/// Calculates side (is virtual for other subclasses)
 	virtual float Side();
-	virtual float Area();
-	virtual float Perimeter();
+	virtual float Area() {return ((topSide + bottomSide) * height) / 2;}
+	virtual float Perimeter {return topSide + bottomSide + (Side() * 2);}
 public:
 	/// @name Constructors/Destructors
 	/// @ {
 	IsoTrapezoid();
 	IsoTrapezoid(float t, float b, float h);
 	IsoTrapezoid(const IsoTrapezoid& source);
+	///Destructor (is virtual for possible subclasses)
 	virtual ~IsoTrapezoid();
 	/// @}
 
 
 	/// @name Getters
 	/// @{
-	float GetSide();
+	float GetSide() {return Side();}
 	float GetTopSide() {return topSide;}
 	float GetBottomSide() {return bottomSIde;}
 	float GetHeight() {return height;}
-	float GetParams(float& mem_top, float& mem_bottom, float& mem_height);
+	void GetParams(float& mem_top, float& mem_bottom, float& mem_height);
 	/// @}
 	
 	/// @name Setters
 	/// @{
-	float SetTopSide(float new_t);
-	float SetBottomSide(float new_b);
-	float SetHeight (float new_h);
-	float SetParams (float new_t, float new_b, float new_h);
+	void SetTopSide(float new_t);
+	void SetBottomSide(float new_b);
+	void SetHeight (float new_h);
+	void SetParams (float new_t, float new_b, float new_h);
 	/// @}
 	
 	/// @name Operators
