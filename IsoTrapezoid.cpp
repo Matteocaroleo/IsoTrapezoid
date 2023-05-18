@@ -1,5 +1,5 @@
 /// @file IsoTrapezoid.cpp
-/// @brief Implementation of subclass IsoTrapezoid
+/// @brief Implementa\tion of subclass IsoTrapezoid
 
 #include "IsoTrapezoid.h"
 #include <iostream>
@@ -24,6 +24,8 @@ void IsoTrapezoid::CopyInit(const IsoTrapezoid& source){
 	height = source.height;
 }
 
+/// @brief Calculates side of trapezoid
+/// @return Side of trapezoid 
 float IsoTrapezoid::Side(){
 	float t_base = (bottomSide - topSide) / 2;
 	return sqrt ((height * height) + (t_base * t_base));
@@ -42,6 +44,14 @@ IsoTrapezoid::IsoTrapezoid(float t, float b, float h){
 	cout << "Param costructor"<< endl;
 }
 
+///@brief copy constructor
+///@param source Object to be copied
+IsoTrapezoid::IsoTrapezoid(const IsoTrapezoid& source){
+	CopyInit(source);
+	cout << "trapezoid copy constr " << endl;
+}
+
+///@brief Destructor
 IsoTrapezoid::~IsoTrapezoid(){
 	Reset();
 	cout << "iso Destructor"<< endl;
@@ -124,12 +134,15 @@ void IsoTrapezoid::Dump(){
 	cout << "height: " << height << endl;
 }
 
+/// @brief Overload of assignment operator
+/// @param r right operand
+/// @return left operand
 IsoTrapezoid& IsoTrapezoid::operator= (const IsoTrapezoid& r){
 	CopyInit(r);
 	return *this;
 }
 
-///@breif overload of == operator
+///@brief overload of == operator
 /// @param r right operanf
 /// @return left operand
 bool IsoTrapezoid::operator == (const IsoTrapezoid& r){
@@ -138,11 +151,19 @@ bool IsoTrapezoid::operator == (const IsoTrapezoid& r){
 	return false;
 }
 
+/// @brief overload of << operator
+/// @param r Right operand
+/// @param out Console
+/// @return console type to concatenate
 ostream& operator << (ostream& out, IsoTrapezoid& r){
 	r.Dump();
 	return out;
 }
-
+ 
+/// @brief overload of >> operator
+/// @param r Right operand
+/// @param out Console
+/// @return console type to concatenate
 istream& operator >> (istream& in, IsoTrapezoid& r){
 	float x;
 	in >> x;
@@ -153,10 +174,15 @@ istream& operator >> (istream& in, IsoTrapezoid& r){
 	r.SetHeight(x);
 	return in;
 }
+
+/// @brief Calculates area
+/// @return Area
 float IsoTrapezoid::Area(){
 	return ((topSide + bottomSide) * height) / 2;
 }
 
+/// @brief Calculates perimeter
+/// @return Perimeter
 float IsoTrapezoid::Perimeter(){
 	return (topSide + bottomSide + (Side() * 2));
 }
