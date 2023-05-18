@@ -34,27 +34,27 @@ float IsoTrapezoid::Side(){
 /// @brief Default constructor
 IsoTrapezoid::IsoTrapezoid (){
 	Init();
-	cout << "Default constructor" << endl;
+	cout << "Isotrapezoid default constructor" << endl;
 }
 
 /// @brief Params constructor
 IsoTrapezoid::IsoTrapezoid(float t, float b, float h){
 	Init();
 	SetParams (t , b , h);
-	cout << "Param costructor"<< endl;
+	cout << "Isotrapezoid Param costructor"<< endl;
 }
 
 ///@brief copy constructor
 ///@param source Object to be copied
 IsoTrapezoid::IsoTrapezoid(const IsoTrapezoid& source){
 	CopyInit(source);
-	cout << "trapezoid copy constr " << endl;
+	cout << "Isotrapezoid copy constr " << endl;
 }
 
 ///@brief Destructor
 IsoTrapezoid::~IsoTrapezoid(){
 	Reset();
-	cout << "iso Destructor"<< endl;
+	cout << "isotrapezoid Destructor"<< endl;
 }
 
 ///@brief Getters for all parameters

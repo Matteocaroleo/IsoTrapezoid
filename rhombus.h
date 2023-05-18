@@ -46,6 +46,8 @@ public:
 	float GetSide();
 
 	void Draw() {cout << "Drawing rhombus..."<< endl;}
+
+	void Dump();
 	void ErrorMessage(const char* string);
 	void WarningMessage(const char* string);
 	

@@ -13,7 +13,7 @@ using namespace std;
 Rhombus::Rhombus()
 {
 	Init();
-	cout << "Default constructor - invoked" << endl;
+	cout << "Rhombus default constructor - invoked" << endl;
 }
 
 /// @brief  Overload of constructor
@@ -23,14 +23,14 @@ Rhombus::Rhombus(float dH, float dV)
 {
 	SetDiagH(dH);
 	SetDiagV(dV);
-	cout << "param constructor - invoked" << endl;
+	cout << "Rhombus param constructor - invoked" << endl;
 }
 
 /// @brief Copy constructor
 /// @param source Object from which to copy 
 Rhombus::Rhombus(const Rhombus& r)
 {
-	cout << "Copy constructor - invoked" << endl;
+	cout << "Rhombus Copy constructor - invoked" << endl;
 	Init(r);
 }
 
@@ -38,7 +38,7 @@ Rhombus::Rhombus(const Rhombus& r)
 Rhombus::~Rhombus()
 {
 	Reset();
-	cout << "Destructor - invoked" << endl;
+	cout << "Rhombus destructor - invoked" << endl;
 }
 
 /// @brief Overload of "=" operator, copies the diagonals of two objects
