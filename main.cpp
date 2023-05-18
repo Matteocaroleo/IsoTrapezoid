@@ -15,19 +15,29 @@ int main(){
 		Menu();
 		cin >> choice;
 		switch (choice) {
-		case '1': 
+		case '1':
+		        if (i == MAX_NUM){
+				cout << "ERROR: CONTAINER FULL!!!\n";
+	 			break;
+			}			
 			P[i] = new Rectangle();
 			cout << "Insert length and width: ";
+                       	//APPROCCIO SPIEGATO DAL PROF. ZUNINO
+			//
+			//puntatore utilizzato per il dynamic casting
 			Rectangle * rect;
-
-			//APPROCCIO SPIEGATO DAL PROF. ZUNINO
-			rect = dynamic_cast<Rectangle *>(P[i]);
+			rect = dynamic_cast<Rectangle *>(P[i]); //dynamic casting
+		        
+			//controlla il codice di ritorno di dynamic casting
 			if (rect)
 				cin >> *rect;
 			i++;
-
 			break;
 		case '2':
+                        if (i == MAX_NUM){
+				cout << "ERROR: CONTAINER FULL!!!\n";
+	 			break;
+			}	
 			P[i] = new Rhombus();
 			cout << "Insert horizontal diagonal and vertical diagonal: ";
 			Rhombus * rhom;
@@ -38,6 +48,10 @@ int main(){
 			break;
 
 		case '3':
+			  if (i == MAX_NUM){
+				cout << "ERROR: CONTAINER FULL!!!\n";
+	 			break;
+			}	
                 	P[i] = new IsoTrapezoid();
 			cout << "Insert top side, bottom side and height: ";
 			IsoTrapezoid* iso;
@@ -47,22 +61,23 @@ int main(){
 			i++;
 			break;
 		case '4':
+
 			temp = i;
 			for (i = 0; i < temp; i++){
-				cout << "\narea: "<< P[i]->GetArea() << "\t";
-				cout << "perimeter: " << P[i]->GetPerimeter() << endl;
+				cout << "\narea: "<< P[i]->GetArea() << endl;
+				cout << "perimeter: " << P[i]->GetPerimeter() <<"\n" << endl;
 			}
-		
 			break;
+
 		case '5':
 			temp = i;
 		        for (i = 0; i < temp; i++){
 		        	delete P[i];
-				cout<< "deleting" << endl;
-		        }		
+			}
 			cout << "Closing program..." << endl;
 			break;
-		default:	
+		default:
+			cout << "Invalid argument" <<  endl;	
 			break;
 		}
 	}
