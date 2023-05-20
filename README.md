@@ -29,7 +29,14 @@ After downloading all the source files, you can run the following commands in th
 - run "make run" to generate an executable and run it
 - run "make clean" to remove all .o and the executable
 
-Executing the "test" file will run the program.
+Executing the "test" file will run the program
+
+## Documentation
+
+To generate documentation, 
+- run "Doxygen" in the terminal. It will create some folders.
+- open the "html" directory and search for "index"
+It should then show the doxygen docuemntation
 
 ## Authors
 Matteo Caroleo S5216938
