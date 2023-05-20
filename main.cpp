@@ -11,7 +11,7 @@ void Menu();
 void ErrorMessage(const char* string);
 
 int main(){
-
+	cout << "\n\n******************STARTING PROGRAM*******************"<< endl;
 	Polygon* P[MAX_NUM] = {0};
 	char choice = 0;
 	int temp;
@@ -29,7 +29,7 @@ int main(){
 			}
 
 			P[i] = new Rectangle();
-			cout << "Insert length and width (each followed by an enter): ";
+			cout << "\nInsert length and width (each followed by an enter): ";
 
                        	//APPROCCIO SPIEGATO DAL PROF. ZUNINO su richiesta, necessario per utilizzare l'overload 
 			//dell'operatore ">>" scritto solo per le sottoclassi ma non per la classe base
@@ -51,7 +51,7 @@ int main(){
 			}
 
 			P[i] = new Rhombus();
-			cout << "Insert horizontal diagonal and vertical diagonal (each followed by an enter): ";
+			cout << "\nInsert horizontal diagonal and vertical diagonal (each followed by an enter): ";
 
 			//dynamic casting
 			Rhombus * rhom;
@@ -69,7 +69,7 @@ int main(){
 			}
 		        	
                 	P[i] = new IsoTrapezoid();
-			cout << "Insert top side, bottom side and height (each followed by an enter): ";
+			cout << "\nInsert top side, bottom side and height (each followed by an enter): ";
                         //dynamic casting
 			IsoTrapezoid* iso;
 			iso = dynamic_cast<IsoTrapezoid *>(P[i]);
@@ -94,12 +94,12 @@ int main(){
 		        for (i = 0; i < temp; i++){
 		        	delete P[i];
 			}
-			cout << "Closing program..." << endl;
+			cout << "Closing program...\n" << endl;
 			break;
 
 		default:
 
-			cout << "Invalid argument" <<  endl;	
+			cout << "\nInvalid argument" <<  endl;	
 			break;
 		}
 	}
@@ -108,7 +108,7 @@ int main(){
 
 /// @brief Menu function
 void Menu (){
-	cout << "Insert 1 to create rectangle: " << endl;
+	cout << "\nInsert 1 to create rectangle: " << endl;
 	cout << "Insert 2 to create rhombus: " << endl;
 	cout << "Insert 3 to create iso trapezoid: " << endl;
 	cout << "Insert 4 to draw: " << endl;

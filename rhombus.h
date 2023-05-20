@@ -70,7 +70,7 @@ public:
 
 	/// @name Console functions	
 	/// @{
-	void Draw() {cout << "Drawing rhombus..."<< endl;}
+	void Draw() {cout << "\nDrawing rhombus..."<< endl;}
 	void Dump();
 	void ErrorMessage(const char* string);
 	void WarningMessage(const char* string);

@@ -74,7 +74,7 @@ public:
 	void ErrorMessage(const char *string); 
 	void WarningMessage(const char *string);
 	void Dump();
-	void Draw() {cout << "Drawing isotrapezoid..." << endl;}
+	void Draw() {cout << "\n"<<"Drawing isotrapezoid..." << endl;}
 	/// @}
 };
 
