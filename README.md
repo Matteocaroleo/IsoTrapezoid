@@ -21,6 +21,16 @@ In the main.cpp there is a test that is capable of performing different actions 
 
 It should be noted that the "Draw" functions and "Draw" options do not actually draw the polygons, they are just a placeholder.
 
+## How to install
+
+After downloading all the source files, you can run the following commands in the terminal thanks to the Makefile:
+ 
+- run "make" to generate an executable.
+- run "make run" to generate an executable and run it
+- run "make clean" to remove all .o and the executable
+
+Executing the "test" file will run the program.
+
 ## Authors
 Matteo Caroleo S5216938
 Pietro Baldi S5331899
