@@ -1,5 +1,5 @@
 /// @file IsoTrapezoid.cpp
-/// @brief Implementa\tion of subclass IsoTrapezoid
+/// @brief Implementation of subclass IsoTrapezoid
 
 #include "IsoTrapezoid.h"
 #include <iostream>
@@ -70,11 +70,10 @@ void IsoTrapezoid::GetParams(float& mem_t, float& mem_b, float& mem_h){
 /// @brief Setter for top side
 /// @param new_t is new value of top side (must be > 0)
 void IsoTrapezoid::SetTopSide (float new_t){
-	if (new_t <= 0){
+	if (new_t <= 0)
 		ErrorMessage ("top side is less than/ equal to 0");
-		return;
-	}
-	topSide = new_t;
+	else
+		topSide = new_t;
 
 
 }	
@@ -82,23 +81,20 @@ void IsoTrapezoid::SetTopSide (float new_t){
 /// @brief Setter for bottom side
 /// @param new_b is new value of bottom side (must be > 0)
 void IsoTrapezoid::SetBottomSide (float new_b){
-	if (new_b <= 0){
+	if (new_b <= 0)
 		ErrorMessage ("b side is less than/ equal to 0");
-		return;
-	}
-	bottomSide = new_b;
-
-
+	
+	else
+		bottomSide = new_b;
 }
 
 /// @brief Setter for height
 /// @param new_h is new value of height (must be > 0)
 void IsoTrapezoid::SetHeight (float new_h){
-	if (new_h <= 0){
+	if (new_h <= 0)
 		ErrorMessage ("height is less than/ equal to 0");
-		return;
-	}
-	height = new_h;
+	else 
+		height = new_h;
 }	
 
 /// @brief Setter for all params
@@ -167,10 +163,39 @@ ostream& operator << (ostream& out, IsoTrapezoid& r){
 istream& operator >> (istream& in, IsoTrapezoid& r){
 	float x;
 	in >> x;
+	//Catches wrong arguments by checking the fail bit of cin ( is 1 when
+	//it tries to input incompatible types, like char and int)
+	if(!cin){
+		cout << "invalid argument (1 will instead be input)\n";
+		x = 1;
+		cin.clear(); //resets the fail bit
+	}
+	//ignore the possible wrong arguments and newline (uo to 10)
+	cin.ignore(10, '\n');
+
+
 	r.SetTopSide(x);
 	in >> x;
+
+	if(!cin){
+		cout << "invalid argument (1 will instead be input)\n";
+		x = 1;
+		cin.clear();
+	}
+	cin.ignore(10, '\n');
+
+
         r.SetBottomSide(x);
 	in >> x;
+
+	if(!cin){
+		cout << "invalid argument (1 will instead be input)\n";
+		x = 1;
+		cin.clear();
+	}
+	cin.ignore(10, '\n');
+
+
 	r.SetHeight(x);
 	return in;
 }
